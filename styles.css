@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@300&display=swap');
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #191919;
+    color: whitesmoke;
+    font-family: "Poppins", "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 1rem;
+}
+
+h1{
+    padding: -15px;
+    display: flex;
+    justify-content: center;
+}
+
+.tomato{
+    width: 11rem;
+    height: 11rem;
+}
+
+main{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+.clock {
+    background-color: red;
+    border-radius: 30px;
+    width: 900px;
+    height: 175px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+ }
+ 
+
+.inputs {
+    width: 900px;
+    align-self: center;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+
+.time{
+    font-size: 7rem;
+}
+
+.work-time {
+    grid-column: 2 / 3;
+}
+
+.start {
+    grid-column: 3 / 4;
+}
+
+.pause {
+    grid-column: 4 / 5;
+}
+
+.stop {
+    grid-column: 5 / 6;
+}
+
+.rest-time {
+    grid-column: 6 / 7;
+}
