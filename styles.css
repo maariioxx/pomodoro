@@ -37,9 +37,12 @@ main{
     width: 100%;
     
 }
+@keyframes toRest {
+    to{background-color: rgba(138,8,8,1);}
+}
 
 .clock {
-    background-color: red;
+    background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 78%);
     border-radius: 30px;
     width: 900px;
     height: 175px;
@@ -48,9 +51,10 @@ main{
     justify-content: center;
     align-items: center;
     margin: 20px;
+    animation-name: toRest;
+    animation-duration: 4s;
  }
  
-
 .inputs {
     width: 900px;
     align-self: center;
