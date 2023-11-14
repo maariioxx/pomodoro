@@ -10,8 +10,9 @@ let interval;
 let time;
 let startingMinutes;
 let audio = new Audio('./images and audio/alarm.mp3');
-let rest;
+let rest = false;
 let started = false;
+let paused = false;
 
 function runWorkCountdown(){{
     if(time >= 0){
@@ -21,7 +22,8 @@ function runWorkCountdown(){{
     }
     if(time === 0){
         audio.play();
-        rest = true;
+        if(rest === false) return rest ? true : false;
+        console.log(rest === false);
         if(parseInt(restInput.value) < 10){
             timeDisplay.textContent = `0${parseInt(restInput.value)} : 00`
         } else timeDisplay.textContent = `${parseInt(restInput.value)} : 00`
@@ -34,17 +36,25 @@ function runWorkCountdown(){{
     } else if (seconds < 10){
         timeDisplay.textContent = `${minutes} : 0${seconds}`
     }
-    
 }}
 
 startButton.addEventListener("click", () => {
+    if(time <= 0){
+        if(rest === false) {rest = true} else {rest = false};
+    }
+    console.log(rest)
     if(rest != true){
         startingMinutes = parseInt(workInput.value);
     } else {
         startingMinutes = parseInt(restInput.value);
-        console.log(startingMinutes)
     }
-    time = startingMinutes * 60;
+    if(paused === true) {
+        let currentTime = timeDisplay.innerHTML.split(":");
+        time = Number(currentTime[0]) * 60 + Number(currentTime[1]);
+        paused = false;
+    } else{
+        time = startingMinutes * 60;
+    }
     if(started != true){
     interval = setInterval(runWorkCountdown, 1000);
     started = true;
@@ -52,11 +62,15 @@ startButton.addEventListener("click", () => {
 })
 
 pauseButton.addEventListener("click", () => {
-    clearInterval(interval)
+    clearInterval(interval);
+    started = false;
+    paused = true;
 })
 
 stopButton.addEventListener("click", () => {
     clearInterval(interval);
     time = 0;
     timeDisplay.textContent = "00 : 00";
+    started = false;
+    paused = false;
 })
