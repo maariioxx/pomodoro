@@ -1,9 +1,11 @@
+clock = document.querySelector(".clock");
 timeDisplay = document.querySelector(".time");
 workInput = document.querySelector(".work-time");
 restInput = document.querySelector(".rest-time");
 startButton = document.querySelector(".start");
 pauseButton = document.querySelector(".pause");
 stopButton = document.querySelector(".stop");
+
 
 
 let interval;
@@ -20,14 +22,18 @@ function runWorkCountdown(){{
     seconds = time % 60;
     time--;
     }
-    if(time === 0){
+    if(time === 1){
         audio.play();
-        if(rest === false) return rest ? true : false;
-        console.log(rest === false);
-        if(parseInt(restInput.value) < 10){
-            timeDisplay.textContent = `0${parseInt(restInput.value)} : 00`
-        } else timeDisplay.textContent = `${parseInt(restInput.value)} : 00`
-    }
+        console.log(parseInt(restInput.value));
+        if(rest === false){
+            clock.classList.remove("work");
+            
+        } else {
+            clock.classList.remove("rest");
+            
+        }
+    } 
+    else{
     timeDisplay.textContent = `${minutes} : ${seconds}`;
     if (minutes < 10 && seconds < 10){
         timeDisplay.textContent = `0${minutes} : 0${seconds}`
@@ -36,6 +42,7 @@ function runWorkCountdown(){{
     } else if (seconds < 10){
         timeDisplay.textContent = `${minutes} : 0${seconds}`
     }
+}
 }}
 
 startButton.addEventListener("click", () => {
@@ -45,8 +52,10 @@ startButton.addEventListener("click", () => {
     console.log(rest)
     if(rest != true){
         startingMinutes = parseInt(workInput.value);
+        clock.classList.add("work")
     } else {
         startingMinutes = parseInt(restInput.value);
+        clock.classList.add("rest")
     }
     if(paused === true) {
         let currentTime = timeDisplay.innerHTML.split(":");
@@ -73,4 +82,5 @@ stopButton.addEventListener("click", () => {
     timeDisplay.textContent = "00 : 00";
     started = false;
     paused = false;
+    rest = true;
 })
