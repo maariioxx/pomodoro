@@ -37,8 +37,18 @@ main{
     width: 100%;
     
 }
+@keyframes toWork{
+    0%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 78%)}
+    50%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 90%)}
+    100%{background: red}
+}
 @keyframes toRest {
-    to{background-color: rgba(138,8,8,1);}
+    0%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 78%)}
+    25%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 50%);}
+    50%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 25%);}
+    50%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 10%);}
+    100%{background: rgba(138,8,8,1)};
+    
 }
 
 .clock {
@@ -51,17 +61,46 @@ main{
     justify-content: center;
     align-items: center;
     margin: 20px;
-    animation-name: toRest;
-    animation-duration: 4s;
+    
  }
+
+.clock.work {
+    animation: toWork 1s;
+    animation-fill-mode: forwards;
+}
+
+.clock.rest {
+    animation: toRest 1s;
+    animation-fill-mode: forwards;
+}
  
 .inputs {
-    width: 900px;
+    width: 800px;
+    height: 60px;
     align-self: center;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    border-radius: 5px;
 }
 
+button {
+    background-color: #202020;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+input{
+    border: none;
+    outline: none;
+    width: 120px;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 5px;
+    color: white
+}
 
 .time{
     font-size: 7rem;
@@ -69,14 +108,17 @@ main{
 
 .work-time {
     grid-column: 2 / 3;
+    background-color: red;
 }
 
 .start {
     grid-column: 3 / 4;
+    border-right: 1px solid red;
 }
 
 .pause {
     grid-column: 4 / 5;
+    border-right: 1px solid rgb(138, 8, 8);
 }
 
 .stop {
@@ -85,4 +127,6 @@ main{
 
 .rest-time {
     grid-column: 6 / 7;
+    background-color: rgb(138, 8, 8);
+
 }
