@@ -40,13 +40,10 @@ main{
 }
 @keyframes toWork{
     0%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 78%)}
-    50%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 90%)}
     100%{background: red}
 }
 @keyframes toRest {
     0%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 78%)}
-    33%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 40%);}
-    66%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 10%);}
     100%{background: rgba(138,8,8,1)};
     
 }
@@ -66,12 +63,12 @@ main{
  }
 
 .clock.work {
-    animation: toWork 0.5s;
+    animation: toWork 1s;
     animation-fill-mode: forwards;
 }
 
 .clock.rest {
-    animation: toRest 0.2s;
+    animation: toRest 1s;
     animation-fill-mode: forwards;
 }
  
