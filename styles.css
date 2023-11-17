@@ -5,7 +5,8 @@
 }
 
 body {
-    background-color: #191919;
+    height: 100vh;
+    background: linear-gradient(120deg, rgba(47,47,47,1) 1%, rgba(23,23,23,1) 78%);
     color: whitesmoke;
     font-family: "Poppins", "Montserrat", sans-serif;
     display: flex;
@@ -44,9 +45,8 @@ main{
 }
 @keyframes toRest {
     0%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 78%)}
-    25%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 50%);}
-    50%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 25%);}
-    50%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 10%);}
+    33%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 40%);}
+    66%{background: linear-gradient(120deg, rgba(255,0,0,1) 1%, rgba(138,8,8,1) 10%);}
     100%{background: rgba(138,8,8,1)};
     
 }
@@ -61,16 +61,17 @@ main{
     justify-content: center;
     align-items: center;
     margin: 20px;
+    box-shadow: 1px 1px 5px #252525;
     
  }
 
 .clock.work {
-    animation: toWork 1s;
+    animation: toWork 0.5s;
     animation-fill-mode: forwards;
 }
 
 .clock.rest {
-    animation: toRest 1s;
+    animation: toRest 0.2s;
     animation-fill-mode: forwards;
 }
  
@@ -81,6 +82,7 @@ main{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     border-radius: 5px;
+    
 }
 
 button {
