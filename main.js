@@ -22,7 +22,7 @@ function runWorkCountdown(){{
     seconds = time % 60;
     time--;
     }
-    if(time === 1){
+    if(time === 0){
         audio.play();
         console.log(parseInt(restInput.value));
         if(rest === false){
